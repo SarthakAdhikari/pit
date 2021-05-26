@@ -1,11 +1,10 @@
 class Blob:
     oid = None
+    type = "blob"
 
-    def init(self, data):
+    def __init__(self, data):
         self.data = data
 
-    def type(self):
-        return "blob"
 
     def __str__(self):
         return self.data

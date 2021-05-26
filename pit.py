@@ -5,6 +5,7 @@ import argparse
 
 from workspace import WorkSpace
 from database import Database
+from blob import Blob
 
 
 parser = argparse.ArgumentParser(prog='pit',
@@ -48,10 +49,10 @@ def do_commit():
     database = Database(db_path)
 
     for file in workspace.list_files():
+        print("reading + writing ", file)
         data = workspace.read_file(file)
         blob = Blob(data)
         database.store(blob)
-    print(workspace.list_files())
 
 def main():
     command_map = {
