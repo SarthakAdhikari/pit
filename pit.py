@@ -15,7 +15,7 @@ init_parser = subparsers.add_parser('init',
                                     help='Initialize an empty pit repo')
 init_repo_path = init_parser.add_argument('path', default=os.getcwd(), nargs='?')
 commit_parser = subparsers.add_parser('commit',
-                                      help='Initialize an empty pit repo')
+                                      help='Create a commit')
 
 args = parser.parse_args()
 
@@ -34,7 +34,6 @@ def do_init():
             sys.exit(1)
     print(f'Initialized empty pit repository in {git_path}')
 
-
 def do_commit():
     root_path = os.getcwd()
     git_path = os.path.join(
@@ -45,11 +44,11 @@ def do_commit():
         git_path,
         'objects'
     )
+
     workspace = WorkSpace(root_path)
     database = Database(db_path)
 
     for file in workspace.list_files():
-        print("reading + writing ", file)
         data = workspace.read_file(file)
         blob = Blob(data)
         database.store(blob)
