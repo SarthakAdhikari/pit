@@ -13,5 +13,5 @@ class WorkSpace:
         file = os.path.join(self.path_name, file_name)
         if os.path.isdir(file):
             return
-        with open(file, 'rb') as f:
+        with open(file, 'r') as f:
             return f.read()
