@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+pit/__init__.py
+pit/author.py
+pit/blob.py
+pit/commit.py
+pit/database.py
+pit/entry.py
+pit/lockfile.py
+pit/refs.py
+pit/tree.py
+pit/workspace.py
+pit.egg-info/PKG-INFO
+pit.egg-info/SOURCES.txt
+pit.egg-info/dependency_links.txt
+pit.egg-info/top_level.txt
