@@ -6,7 +6,7 @@ class LockFile:
     StaleLock = Exception()
 
     def __init__(self, path):
-        self.file_path = self.path
+        self.file_path = path
         self.lock_path = path + ".lock"
         self.lock = None
 

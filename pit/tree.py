@@ -11,7 +11,7 @@ class Tree:
         entries = sorted(self.entries, key=lambda x: x.name)
         formatted = [
             (
-                f"{entry.MODE} {entry.name}\0" +
+                f"{entry.mode} {entry.name}\0" +
                 f"{unhexlify(entry.oid)}"
             )
             for entry in entries

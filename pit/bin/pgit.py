@@ -61,9 +61,11 @@ def do_commit():
         data = workspace.read_file(file_name)
         blob = Blob(data)
 
+        # Write blob with its length to a file with hex-digest filename
         database.store(blob)
+
         is_executable = workspace.is_executable(file_name)
-        entry = Entry(file_name, blob.oid, stat)
+        entry = Entry(file_name, blob.oid, is_executable)
         entries.append(entry)
 
     tree = Tree(entries)

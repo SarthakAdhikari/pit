@@ -27,14 +27,17 @@ class Database:
         )
         if os.path.exists(object_file):
             return
-        temp_file_name = ''.join(
+        # create a temp file
+        temp_name = ''.join(
             secrets.choice(string.ascii_uppercase + string.digits) for _ in range(15)
         )
-        temp_file_path = os.path.join(
+        temp_path = os.path.join(
             self.path_name,
             temp_file_name
         )
+        # write content to a temp file
         with open(temp_file_path, "wb") as f:
             compressed = zlib.compress(content, level=zlib.Z_BEST_SPEED)
             f.write(compressed)
+        # rename temp file
         os.rename(temp_file_path, object_file)

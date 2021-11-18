@@ -14,5 +14,6 @@ class Entry:
         self.oid = oid
         self.is_executable = is_executable
 
+    @property
     def mode(self):
         return self.REGULAR_MODE if self.is_executable else self.REGULAR_MODE
